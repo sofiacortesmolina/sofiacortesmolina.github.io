@@ -1,0 +1,152 @@
+html, body, h1 {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-size: 14px;
+  font-family: "Nunito", sans-serif;
+}
+
+#app {
+  height: 100vh;
+  width: 100%;
+}
+@media (min-width: 576px) {
+  #app {
+    background-color: pink;
+  }
+}
+#app .header {
+  height: 7vh;
+  line-height: 7vh;
+  text-align: center;
+  background-color: #ffffff;
+  box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.15);
+  font-size: 1.3em;
+  font-weight: 700;
+}
+#app .controls {
+  width: 90%;
+  height: 45vh;
+  background-color: #ffffff;
+  border-radius: 2px;
+  margin: 4% auto 0 auto;
+  padding-top: 0.6rem;
+  box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.06);
+  font-size: 0.9rem;
+  position: relative;
+}
+#app .controls form {
+  width: 90%;
+  margin: 0 5%;
+}
+#app .controls form select {
+  width: 100%;
+  font-size: 1.1rem;
+  padding: 3px;
+  border: 1px solid #dcdcdc;
+  background-color: #fffef7;
+  border-radius: 3px;
+}
+#app .controls form .small {
+  font-size: 0.8rem;
+  font-weight: 500;
+  padding-left: 2px;
+}
+#app #map {
+  width: 90%;
+  height: 40vh;
+  position: absolute;
+  bottom: 3vh;
+  left: 5%;
+  background-color: #ffffff;
+  display: none;
+}
+
+.non-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+.non-list li {
+  margin: 0;
+  padding: 0;
+  width: 24%;
+  position: relative;
+}
+.non-list li small {
+  display: block;
+  text-align: center;
+}
+.non-list li button {
+  font-size: 1.8rem;
+  height: 46px;
+  line-height: 46px;
+  width: 100%;
+  border-radius: 3px;
+  background-color: #eaeaea;
+  border: 1px solid #c7c7c7;
+  color: #353535;
+  outline: none;
+}
+.non-list li button.selected {
+  background-color: #536ddc;
+  border: 1px solid #536ddc;
+  color: white;
+}
+
+#sec-resultado {
+  width: 90%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  height: 60px;
+  margin-top: 10px;
+}
+#sec-resultado .panel {
+  width: 48%;
+  border-radius: 2px;
+}
+#sec-resultado .panel > small {
+  display: block;
+  text-align: center;
+  margin-top: 6px;
+  font-weight: 600;
+  font-size: 0.8rem;
+}
+#sec-resultado .panel > span {
+  display: block;
+  font-size: 1.3rem;
+  text-align: center;
+  font-weight: 900;
+}
+#sec-resultado .panel-1 {
+  border: 1px solid #a49dd2;
+  background-color: #dcdaea;
+}
+#sec-resultado .panel-2 {
+  border: 1px solid #8cb372;
+  background-color: #c1e8a6;
+}
+
+.xs--bg-red {
+  background-color: red;
+}
+
+.sm--bg-blue {
+  background-color: blue;
+}
+
+.md--bg-green {
+  background-color: green;
+}
+
+.lg--bg-yellow {
+  background-color: yellow;
+}
+
+/*# sourceMappingURL=app.css.map */

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Objetos</title>
+</head>
+<body onload="iniciar()">
+
+
+  <h5>La edad de John: <span id="edad-john"></span></h5>
+
+  <h5>Nombre del 1er Objeto: <span id="primer-nombre"></span> </h5>
+
+  <h5>Nombre y edad de Cada Usuario</h5>
+  <ul id="usuarios"></ul>
+
+  <h5>Nombre y edad de Los mayores de edad</h5>
+  <ul id="mayores"></ul>
+
+
+  <script>
+    var users = [
+      {name: "Michael", age:37},
+      {name: "John", age:30},
+      {name: "David", age:27}
+    ];
+
+    function iniciar(){
+      document.getElementById('edad-john').innerHTML      = users[1].age;
+      document.getElementById('primer-nombre').innerHTML  = users[0].name;
+
+      for(i=0;i<users.length; i++){
+        console.log(i);
+
+        var nombre  = users[i].name;
+        var edad    = users[i].age;
+
+        var usuario = document.createElement("li");
+        var texto   = document.createTextNode(`${nombre}, ${edad} Años`);   
+        
+        usuario.appendChild(texto);
+        document.getElementById("usuarios").appendChild(usuario);
+
+        if(edad >= 18){
+          var mayor = document.createElement("li");
+          var texto = document.createTextNode(`${nombre}, ${edad} años (Mayor de edad)`);
+          mayor.appendChild(texto);
+          document.getElementById("mayores").appendChild(mayor);
+        }
+
+        
+      }
+
+
+    }
+
+  </script>
+</body>
+</html>

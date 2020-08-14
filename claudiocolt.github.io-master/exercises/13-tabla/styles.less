@@ -1,0 +1,135 @@
+@bone:      #eeeeee;
+@gris:      #808080;
+@celeste:   #689bff;
+@azul:      #1913a2;
+@rosado:    #fd9a98;
+@amarillo:  #fecb00;
+@verde:     #1fca21;
+@rojo:      #ff0000;
+
+
+@box-w: 40px;
+@cuadros: 19; //18 cuadros + 1 = 19 cuadros
+
+
+
+// Calculando Cuadros Vacios
+// Cantidad de cuadros + bordes + espacios
+
+@gap:  14px; //Espacio que se le da al cuarto cuadro para la separacion de los elementos especiales
+@padding: 20px;
+
+@vacio-16: 16 * @box-w + (16*2) + (16-3) + @gap;
+@vacio-10: 10 * @box-w + (10*2) + (10-3);
+@vacio-2:   2 * @box-w + (2*2) + (2-3);
+
+// Cantidad de cuadros * 40 mas los borders mas el espacio del gap mas los margin1 de cada cuadro
+@wrapper: (@cuadros * @box-w) + (@cuadros*2) + @gap + @cuadros + (@padding * 2);
+
+
+
+
+
+
+/*CSS reset settings here*/
+*{
+	margin: 0px;
+  padding: 0px;
+}   
+
+
+#wrapper{
+	width: @wrapper;
+  margin: 20px auto;
+  font-family: sans-serif;
+  font-size: 12px;
+  border: 1px solid #dedede;
+  background-color: @bone;
+
+  ul.tabla{
+    list-style: none;
+    padding: @padding;
+    margin: 0;
+    font-size: 0;
+
+    li{
+      padding: 0;
+      margin: 0;
+      display: inline-block;
+      vertical-align: top;
+      width: @box-w;
+      height: @box-w;
+      text-align: center;
+      border: 1px solid @bone; /*despues cambiar a @bone*/
+      margin-right: 1px;
+      margin-bottom: 1px;
+
+      &.item-title{
+        width: 127px;
+        p{
+          width: inherit;
+        }
+      }
+      &.item-symbol{
+        width: 10px;
+      }
+      &.gap{
+        margin-left: @gap;
+      }
+      &.mt-20{
+        margin-top: 20px;
+      }
+      &.vacio-2{
+        width: @vacio-2;
+      }
+      &.vacio-16{
+        width: @vacio-16;
+      }
+      &.vacio-10{
+        width: @vacio-10;
+      }
+
+      &.item{
+        border: 1px solid @gris;
+      }
+
+      &.amarillo{ background-color: @amarillo;  }
+      &.celeste{  background-color: @celeste;   }
+      &.rosado{   background-color: @rosado;    }
+      &.verde{    background-color: @verde;     }
+
+      p{
+        display: table-cell;
+        vertical-align: middle;
+        text-align: center;
+        width: @box-w;
+        height: @box-w;
+        font-size: 12px;
+        color: @rojo;
+      }
+      small{
+        display: block;
+        font-size: 9px;
+        margin-top: 1px;
+      }
+      b{
+        display: block;
+        font-size: 16px;
+        color: @azul;
+      }
+      i{
+        display: block;
+        font-size: 9px;
+        font-style: normal;
+      }
+
+    }
+
+  }
+
+
+}
+
+
+
+

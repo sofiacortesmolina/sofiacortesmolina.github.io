@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Javascript - 02</title>
+  <style>
+    html, body{
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 12px;
+    }
+    .hidden{
+      display: none;
+    }
+    .menu{
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      width: 200px;
+      background-color: #4b5a65;
+      color: white;
+    }
+    .menu h2{
+      text-align: center;
+    }
+    .menu ul{
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      text-align: center;
+    }
+    .menu ul li button{
+      width: 80%;
+      margin: 2px;
+      text-align: left;
+      padding-left: 6%;
+      border: 1px solid #3f4f5a;
+      border-radius: 2px;
+      height: 30px;
+      background-color: #b9b9b9;
+      cursor: pointer;
+      outline: none;
+    }
+    .menu ul li button:hover{
+      border: 1px solid #3f4f5a;
+      background-color: #c7c7c7;
+    }
+    .menu ul li button:active{
+      border: 1px solid #3f4f5a;
+      background-color: #adadad;
+    }
+    .menu ul li button.selected{
+      border: 1px solid #568dde;
+      background-color: #568dde;
+      color: white;
+    }
+    
+
+    
+
+
+    .main{
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      right: 0;
+      left: 200px;
+      background-color: #f0f3f4;
+    }
+    
+    .main .header{
+      width: 100%;
+      background-color: white;
+      border-bottom: 1px solid gainsboro;
+      height: 90px;
+      position: absolute;
+    }
+    .main .header h1{
+      margin: 0;
+      padding: 0;
+      font-size: 18px;
+      font-weight: normal;
+      padding-top: 18px;
+      padding-left: 30px;
+    }
+    .main .header .form{
+      padding-left: 30px;
+      padding-top: 10px;
+    }
+    .main .header .form input{
+      width: 60px;
+      font-size: 20px;
+      height: 25px;
+      text-align: center;
+      font-weight: bold;
+      display: inline-block;
+      vertical-align: middle;
+      border-radius: 2px;
+      border: 1px solid #b1b1b1;
+      background-color: #ffffdc;
+    }    
+    .main .header .form input::placeholder{
+      color: #dedede;
+    }
+    .main .header .form button{
+      margin: 0;
+      height: 29px;
+      padding: 2px 14px;
+      border-radius: 3px;
+      background-color: #81d27f;
+      border: 1px solid #79bd77;
+      display: inline-block;
+      vertical-align: middle;
+      cursor: pointer;
+      outline: none;
+      font-size: 11px;
+      font-weight: bold;
+    }
+    .main .header .form button:active{
+      background-color: #77c175;
+      border: 1px solid #77c175;
+    }
+
+    .main .result{
+      position: absolute;
+      top: 91px;
+      bottom: 0;
+      right: 0;
+      left: 0px;
+      padding: 20px;
+      background-color: #f0f3f4;
+      overflow-y: scroll;
+      font-size: 30px;
+    }
+    
+  </style>
+</head>
+<body>
+
+  
+
+  <div class="menu">
+
+    <h2>F. Básicos II</h2>
+
+    <ul>
+      <li><button id="btn-1" class="selected">1. Tamaño Grande</button></li>
+      <li><button id="btn-2">2. Imprime/Devuelve</button></li>
+      <li><button id="btn-3">3. Impr./Dev. II</button></li>
+      <li><button id="btn-4">4. Doble Visión</button></li>
+      <li><button id="btn-5">5. Contar Positivos</button></li>
+      <li><button id="btn-6">6. Pares e Impares</button></li>
+      <li><button id="btn-7">7. Incrementa</button></li>
+      <li><button id="btn-8">8. Longitudes Prev.</button></li>
+      <li><button id="btn-9">9. Agrega Siete</button></li>
+      <li><button id="btn-10">10. Array Inverso</button></li>
+      <li><button id="btn-11">11. Perspectiva (-)</button></li>
+      <li><button id="btn-12">12. Hambriento</button></li>
+      <li><button id="btn-13">13. Cambiar al centro</button></li>
+      <li><button id="btn-14">14. Escala el Array</button></li>
+    </ul>
+  </div>
+  
+  <div class="main">
+
+    <div class="header" id="header-1">
+      <h1>1. Dado un array, escribe una función que cambie todos los números positivos en él, por el string “big”.</h1>
+      <div class="form">
+        <input id="ipt-1-1" type="text" placeholder="1,2,3,4" style="width: 240px;">
+        <button class="btn-ejecutar" onclick="ejercicio_1();">EJECUTAR EJERCICIO 1</button>
+      </div>
+    </div>
+    <div class="header hidden" id="header-2">
+      <h1>2. Dado un array, crea una función que imprima el menor valor, y que retorne el mayor</h1>
+      <div class="form">
+        <input id="ipt-2-1" type="text" placeholder="1,2,3,4" style="width: 240px;">
+        <button class="btn-ejecutar" onclick="ejercicio_2();">EJECUTAR EJERCICIO 2</button>
+      </div>
+    </div>
+    <div class="header hidden" id="header-3">
+      <h1>3. Dado un array, crea una función que imprima el penúltimo valor y retorne el primer valor impar.</h1>
+      <div class="form">
+        <input id="ipt-3-1" type="text" placeholder="1,2,3,4" style="width: 240px;">
+        <button class="btn-ejecutar" onclick="ejercicio_3();">EJECUTAR EJERCICIO 3</button>
+      </div>
+    </div>
+
+    <div class="header hidden" id="header-4">
+      <h1>4. Dado un array, crea una función que devuelva un nuevo array donde cada valor se duplique</h1>
+      <div class="form">
+        <input id="ipt-4-1" type="text" placeholder="1,2,3,4" style="width: 240px;">
+        <button class="btn-ejecutar" onclick="ejercicio_4();">EJECUTAR EJERCICIO 4</button>
+      </div>
+    </div>
+    
+    <div class="header hidden" id="header-5">
+      <h1>5. Dado un array, crea una función que reemplace el último valor con el número de positivos</h1>
+      <div class="form">
+        <input id="ipt-5-1" type="text" placeholder="1,2,3,4" style="width: 240px;">
+        <button class="btn-ejecutar" onclick="ejercicio_5();">EJECUTAR EJERCICIO 5</button>
+      </div>
+    </div>
+    
+    <div class="header hidden" id="header-6">
+      <h1>6. Cada 3 valores consecutivos imprime y ¡Qué imparcial! (impares) y ¡Es para bien! (pares).</h1>
+      <div class="form">
+        <input id="ipt-6-1" type="text" placeholder="1,2,3,4" style="width: 240px;">
+        <button class="btn-ejecutar" onclick="ejercicio_6();">EJECUTAR EJERCICIO 6</button>
+      </div>
+    </div>
+    
+    <div class="header hidden" id="header-7">
+      <h1>7. Dado un array, agrega 1 a aquellos cuyo índice es impar. Luego, console.log cada valor del array y devuelve arr. </h1>
+      <div class="form">
+        <input id="ipt-7-1" type="text" placeholder="1,2,3,4" style="width: 240px;">
+        <button class="btn-ejecutar" onclick="ejercicio_7();">EJECUTAR EJERCICIO 7</button>
+      </div>
+    </div>
+    
+    <div class="header hidden" id="header-8">
+      <h1>8. Dado un Array, Reemplaza cada string con un número de acuerdo cantidad de letras del string anterior.</h1>
+      <div class="form">
+        <input id="ipt-8-1" type="text" placeholder="dojo, code, hola, etc|" style="width: 400px;">
+        <button class="btn-ejecutar" onclick="ejercicio_8();">EJECUTAR EJERCICIO 8</button>
+      </div>
+    </div>
+    
+    <div class="header hidden" id="header-9">
+      <h1>9. Devuelve un nuevo array con todos los valores del original, pero sumando 7 a cada uno.</h1>
+      <div class="form">
+        <input id="ipt-9-1" type="text" placeholder="2,4,6,9" title="Array" style="width: 240px;">
+        <button class="btn-ejecutar" onclick="ejercicio_9();">EJECUTAR EJERCICIO 9</button>
+      </div>
+    </div>
+    <!-- 
+    <div class="header hidden" id="header-10">
+      <h1>10. Escribe una función que reemplace cualquier número negativo dentro de un array por 0</h1>
+      <div class="form">
+        <input id="ipt-10-1" type="text" placeholder="2,4,6,9" title="Array" style="width: 240px;">
+        <button class="btn-ejecutar" onclick="ejercicio_10();">EJECUTAR EJERCICIO 10</button>
+      </div>
+    </div>
+    
+    <div class="header hidden" id="header-11">
+      <h1>11. Devuelve un array que solo contenga el mayor, menor y promedio de un array original</h1>
+      <div class="form">
+        <input id="ipt-11-1" type="text" placeholder="2,4,6,9" title="Array" style="width: 240px;">
+        <button class="btn-ejecutar" onclick="ejercicio_11();">EJECUTAR EJERCICIO 11</button>
+      </div>
+    </div>
+    
+    <div class="header hidden" id="header-12">
+      <h1>12. Escribe una función que intercambie el primer y el último valor de cualquier array</h1>
+      <div class="form">
+        <input id="ipt-12-1" type="text" placeholder="2,4,6,9" title="Array" style="width: 240px;">
+        <button class="btn-ejecutar" onclick="ejercicio_12();">EJECUTAR EJERCICIO 12</button>
+      </div>
+    </div>
+    
+    <div class="header hidden" id="header-13">
+      <h1>13. Toma un array de números y reemplaza cualquier valor negativo por el string ‘Dojo’.</h1>
+      <div class="form">
+        <input id="ipt-13-1" type="text" placeholder="2,4,6,9" title="Array" style="width: 240px;">
+        <button class="btn-ejecutar" onclick="ejercicio_13();">EJECUTAR EJERCICIO 13</button>
+      </div>
+    </div> -->
+    
+
+
+
+    
+    
+
+    
+    <div id="result" class="result"></div>
+
+  </div>
+
+
+  <script>
+    
+
+    var allbuttons  = document.querySelectorAll(".menu button");
+    var allbtns     = allbuttons;
+    
+    allbuttons.forEach(function(btn) {
+
+      btn.addEventListener("click", function(e){
+
+        // Borrar div#result
+        document.querySelector("#result").innerHTML = '';
+
+        var btn_aux = (btn.id).split("-");
+        var indice  = btn_aux[1];
+
+        allbtns.forEach(function(bttn){
+          
+          if(bttn.id == `btn-${indice}`){
+            bttn.classList.add("selected");
+          } else {
+            bttn.classList.remove("selected");
+          }
+
+        });
+
+        // Ejecutar Funcion que carga el ejercicio correspondiente
+        menu(indice);
+
+      });
+
+    });
+
+
+
+
+
+    function menu(n){
+
+      var allheaders  = document.querySelectorAll(`div.header`);
+
+      allheaders.forEach(function(header){
+        if(header.id == `header-${n}`){
+          header.classList.remove("hidden");
+        } else {
+          header.classList.add("hidden");
+        }       
+      });
+      
+    }
+
+
+    
+    
+    // --------------------------------------------------------------------------------------------------------------------
+
+
+
+
+    function ejercicio_1(){
+      // cambia positivos a 'big'
+      var valores   = document.querySelector("#ipt-1-1").value;
+      var el_array  = valores.split(",");
+      var div       = document.querySelector("#result");
+
+      for(c=0; c<el_array.length; c++){
+        if(el_array[c] > 0){
+          el_array[c] = 'big';
+        }
+      }
+
+      console.log(el_array);
+      div.innerHTML = el_array;
+
+    }
+
+
+    function ejercicio_2(){
+      // imprime menor y retorna mayor
+      var valores   = document.querySelector("#ipt-2-1").value;
+      var el_array  = valores.split(",");
+      var div       = document.querySelector("#result");
+      var mayor     = el_array[0];
+      var menor     = el_array[0];
+
+      for(c=0; c<el_array.length; c++){
+        if(el_array[c] > mayor){
+          mayor = el_array[c];
+        } else if(el_array[c] < menor){
+          menor = el_array[c];
+        }
+      }
+
+      div.innerHTML = `Imprime Menor: ${menor}<br><small style='font-size: 12px;'>Esta función retorna el número mayor: ${mayor}</small>`;
+      return mayor;
+
+    }
+
+
+    function ejercicio_3(){
+      // imprime penultimo valor y retorna el primer impar
+      var valores   = document.querySelector("#ipt-3-1").value;
+      var el_array  = valores.split(",");
+      var div       = document.querySelector("#result");
+      var el_impar  = el_array[0];
+      var penultimo = el_array[el_array.length - 2];
+
+      for(c=0; c<el_array.length; c++){
+        if(el_array[c] % 2 == 1){
+          el_impar = el_array[c];
+          break;
+        }
+        console.log("Ciclo", c);
+      }
+
+
+      div.innerHTML = `Imprime Penultimo: ${penultimo}<br><small style='font-size: 12px;'>Esta función retorna el primer impar: ${el_impar}</small>`;
+      return el_impar;
+
+    }
+
+
+    function ejercicio_4(){
+      // Devuelve los dobles, de los valores de un array
+      var valores   = document.querySelector("#ipt-4-1").value;
+      var el_array  = valores.split(",");
+      var div       = document.querySelector("#result");
+
+      for(c=0; c<el_array.length; c++){
+        el_array[c] = el_array[c] * 2;
+      }
+
+      div.innerHTML = el_array;
+      //return suma;
+
+    }
+
+
+    function ejercicio_5(){
+      // reemplaza el ultimo item por la suma de los positivos
+      var valores   = document.querySelector("#ipt-5-1").value;
+      var el_array  = valores.split(",");
+      var positivos = 0;
+      var div       = document.querySelector("#result");
+
+      for(c=0; c<el_array.length; c++){
+        if(el_array[c] > 0){
+          positivos++;
+        }
+      }
+
+      el_array[el_array.length-1] = positivos;
+
+      div.innerHTML = el_array;
+      //return suma;
+
+    }
+
+
+    function ejercicio_6(){
+      // Devuelve texto para 3 valores pares/impares consecutivos
+      var valores   = document.querySelector("#ipt-6-1").value;
+      var el_array  = valores.split(",");
+      var div       = document.querySelector("#result");
+      var count_p   = 0;
+      var count_i   = 0;
+      var texto     = "";
+
+      for(c=0; c<el_array.length; c++){
+        
+        texto     +=  `<br> ${el_array[c]}`;
+
+        if(el_array[c] % 2 === 0){
+          // Es Par, almaceno contador
+          texto     +=  ` par`;
+          count_p++;
+          count_i = 0;
+          // verifico cantidad
+          if(count_p == 3){
+            console.log("¡Es para bien!");
+            texto +=  ` => ¡Es para bien!`;
+            count_p = 0;
+          }
+
+        } else {
+          // Es Impar
+          texto     +=  ` impar `;
+          count_i++;
+          count_p = 0;
+          // verifico cantidad
+          if(count_i == 3){
+            console.log("¡Qué imparcial!");
+            texto +=  ` => ¡Qué imparcial!`;
+            count_i = 0;
+          }
+          
+        }
+
+      }
+
+      // si el promedio da con decimales, poner 2 decimales
+      div.innerHTML = texto;
+      //return suma;
+
+    }
+
+
+    function ejercicio_7(){
+      // agrega 1 a los elementos con indice impar
+      var valores   = document.querySelector("#ipt-7-1").value;
+      var el_array  = valores.split(",");
+      var div       = document.querySelector("#result");
+      var positivos = 0;
+
+      for(c=0; c<el_array.length; c++){
+        if(c % 2 == 1){
+          el_array[c]++;
+        }
+      }
+
+      div.innerHTML = el_array;
+      return el_array;
+
+    }
+
+
+    function ejercicio_8(){
+      // reemplaza los textos, por la longitud del item anterior
+      var valores   = document.querySelector("#ipt-8-1").value;
+      var el_array  = valores.split(",");
+      var div       = document.querySelector("#result");
+      var anterior  = 0;
+
+      for(c=0; c<el_array.length; c++){
+
+        if(anterior > 0){
+          var temp    = el_array[c].trim().length; //el nuevo valor
+          el_array[c] = anterior;
+          anterior    = temp;
+        } else {
+          anterior = el_array[c].trim().length;
+        }
+        
+      }
+
+      div.innerHTML = el_array;
+      return el_array;
+
+    }
+
+
+    function ejercicio_9(){
+      // Devuelve un nuevo array, con todos los items sumados en 7
+      var valores   = document.querySelector("#ipt-9-1").value; //array
+      var el_array  = valores.split(",");
+      var div       = document.querySelector("#result");
+      var nuevo     = [];
+
+      for(c=0; c<el_array.length; c++){
+        nuevo.push(parseFloat(el_array[c]) + 7);
+      }
+
+      div.innerHTML = nuevo;
+      return nuevo;
+
+    }
+
+
+    // function ejercicio_10(){
+
+    //   // Devuelve un array con los numeros negativos en 0
+    //   var valor1    = document.querySelector("#ipt-10-1").value; //array
+    //   var el_array  = valor1.split(",");
+    //   var div       = document.querySelector("#result");
+
+    //   for(c=0; c<el_array.length; c++){
+    //     el_array[c] = el_array[c] < 0 ? 0 : el_array[c];
+    //   }
+
+    //   div.innerHTML = el_array;
+
+    // }
+
+
+    // function ejercicio_11(){
+    //   // Devuelve un array con el mayor, menor y el promedio
+    //   var valor1    = document.querySelector("#ipt-11-1").value; //array
+    //   var el_array  = valor1.split(",");
+    //   var div       = document.querySelector("#result");
+
+    //   var mayor     = parseFloat(el_array[0]);
+    //   var menor     = parseFloat(el_array[0]);
+    //   var suma      = 0;
+    //   var promedio  = 0;
+    //   var new_array = [];
+
+    //   for(c=0; c<el_array.length; c++){
+        
+    //     if(parseFloat(el_array[c]) > mayor){
+    //       //es mayor?
+    //       mayor = el_array[c];
+    //     } else if(parseFloat(el_array[c]) < menor){
+    //       //es menor?
+    //       menor = el_array[c];
+    //     }
+
+    //     suma = suma + parseFloat(el_array[c]);
+
+    //   }
+
+    //   // si el promedio da con decimales, poner 2 decimales
+    //   var promedio  = suma / el_array.length;
+    //   var fixeado   = promedio % 1 === 0 ? promedio : promedio.toFixed(2);
+
+    //   console.log("mayor", mayor);
+    //   console.log("menor", menor);
+    //   console.log("suma", suma);
+    //   console.log("promedio", fixeado);
+
+    //   div.innerHTML = [mayor, menor, fixeado];
+
+    // }
+
+
+
+    // function ejercicio_12(){
+    //   // Devuelve un array con los valores de inicio y final, cambiados
+    //   var valor1    = document.querySelector("#ipt-12-1").value; //array
+    //   var el_array  = valor1.split(",");
+    //   var div       = document.querySelector("#result");
+
+    //   var primero   = el_array[0];
+    //   var ultimo    = el_array[el_array.length-1];
+
+    //   el_array[0]   = ultimo;
+    //   el_array[el_array.length-1] = primero;
+
+    //   div.innerHTML = el_array;
+
+    // }
+
+
+
+    // function ejercicio_13(){
+    //   // Devuelve un array con los negativos cambiados a 'Dojo'
+    //   var valor1    = document.querySelector("#ipt-13-1").value; //array
+    //   var el_array  = valor1.split(",");
+    //   var div       = document.querySelector("#result");
+
+    //   for(c=0; c<el_array.length; c++){
+    //     if(el_array[c] < 0){
+    //       el_array[c] = 'Dojo';
+    //     }
+    //   }
+
+    //   div.innerHTML = el_array;
+
+    // }
+
+    
+  </script>
+
+</body>
+</html>

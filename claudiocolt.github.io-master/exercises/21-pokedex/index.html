@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <title>Equipo Rocket</title>
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">    
+  <style>
+    ul{
+      margin: 0 auto;
+      padding: 0;
+      margin-top: 15px;
+      list-style: none;
+      max-width: 920px;
+    }
+    ul li{
+      display: inline-block;
+      background-color: antiquewhite;
+      border: 1px solid darkgoldenrod;
+      margin: 2px;
+      cursor: pointer;
+    }
+    ul li:hover{
+      background-color: #fff7ed;
+    }
+    ul li:active,
+    ul li:focus{
+      background-color: #d6c1a4;
+    }
+
+    #pokemon-image{
+      margin-bottom: 20px;
+      width: 40%;
+    }
+    .pp{
+      padding: 4px 10px;
+    }
+    .mr{
+      margin-right: 6px;
+    }
+
+  </style>
+
+  </head>
+  <body>
+
+    <nav class="navbar navbar-light bg-danger justify-content-center">
+      <span class="navbar-brand mb-0 h1 text-white">Pokedex</span>
+    </nav>
+
+    <ul id="listado">
+    </ul>
+
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="pokemon-name"></h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+
+            <div class="text-center">
+              <img id="pokemon-image">
+            </div>
+
+            
+
+            <table class="table table-sm table-bordered table-collapsed">
+              <tbody>
+                <tr>
+                  <th width="140" scope="row">Nombre</th>
+                  <td><span id="span-nombre"></span></td>
+                </tr>
+                <tr>
+                  <th scope="row">Altura</th>
+                  <td><span id="span-altura"></span></td>
+                </tr>
+                <tr>
+                  <th scope="row">Peso</th>
+                  <td><span id="span-peso"></span></td>
+                </tr>
+                <tr>
+                  <th scope="row">Tipo(s)</th>
+                  <td><span id="span-tipo"></span></td>
+                </tr>
+              </tbody>
+            </table>
+
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+  <script>
+    $(document).ready(function(){
+      
+      // Cuando el documento esta listo, ejecutar la funcion loop()
+      loop();      
+
+      // funcion para cuando hago click por cada cuadro de pokemon
+      $("#listado li").click(function(){
+        
+        var number  = this.id;
+
+        $.get(`https://pokeapi.co/api/v2/pokemon/${number}/`, function(res) {
+
+          var nombre  = res.name;
+          var alto    = res.height;
+          var peso    = res.weight;
+          var tipos   = res.types;
+          var textos  = "";
+
+          
+          $("#pokemon-name").text(number+". "+nombre);
+          $("#pokemon-image").attr("src", "https://pokeres.bastionbot.org/images/pokemon/"+number+".png");
+
+
+          $("#span-nombre").text(nombre);
+          $("#span-altura").text((alto*10)+" cm");
+          $("#span-peso").text(peso+" kg");
+
+
+          //loop para los tipos          
+          $.each(tipos, function(indice, element){
+            textos  +=  "<span class='badge badge-danger mr pp'>"+ element.type.name +"</span>";
+          });
+          
+
+          if(textos != ""){
+            $("#span-tipo").html(textos);
+          }
+
+        
+        }, "json");
+
+      });
+    
+      
+    
+    
+    });
+    
+
+
+    function loop(){
+    
+      var inicio  = 1;
+      var final   = 151;
+
+      for (i = inicio; i <= final; i++) {
+        $("#listado").append("<li id='"+i+"' data-toggle='modal' data-target='#exampleModal'><img src='http://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/"+i+".png'></li>");
+      }      
+    
+    }
+    </script>
+
+
+
+
+
+
+
+</body>
+</html>

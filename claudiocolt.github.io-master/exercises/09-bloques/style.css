@@ -1,0 +1,161 @@
+/*CSS reset settings here*/
+*{
+	margin: 0px;
+	padding: 0px;
+}
+
+#wrapper{
+	width: 90%;
+  margin: 0px auto;
+	font-family: sans-serif;
+	font-size: 0;
+}
+
+.top{
+	height: 90px;
+	background-color: #009900;
+	margin-bottom: 10px;
+}
+
+.aside{
+	background-color: #0600ff;
+}
+.main{
+	background-color: #ff0400;
+}
+.main .main-footer{
+	background-color: #7f01ff;
+}
+.main .main-boxes{
+	list-style: none;
+	font-size: 0;
+	text-align: center;
+}
+.main .main-boxes li{
+	display: inline-block;
+	vertical-align: top;
+	background-color: yellow;
+}
+
+.bottom{
+  background-color: #ffff9a;
+}
+
+
+
+
+
+
+
+/* phone */
+@media only screen and (max-width: 480px){
+	
+	#wrapper {
+		width: 90%;
+		background-color: blue;
+	}
+	.aside{
+		display: none;
+	}
+	.main{
+		margin: 0;
+		width: auto;
+		display: block;
+		min-height: 300px;
+		padding: 1% 0;
+	}
+	.main .main-boxes{
+		padding: 0 4%;
+	}
+	.main .main-boxes li{
+		display: block;
+		min-height: 100px;
+		margin: 3% 0;
+	}
+	.main .main-footer{
+		height: 80px;
+    margin-top: 10px;
+    margin: 3% 4%;
+	}
+	
+
+}
+
+
+/* tablet */
+@media only screen and (min-width: 481px){
+	
+	#wrapper {
+		width: 90%;
+		max-width: 700px;
+	}
+	.aside{
+		display: none;
+	}
+	.main{
+		margin: 0;
+		width: auto;
+		display: block;
+		min-height: 300px;
+		padding: 3% 0;
+	}
+	.main .main-boxes{
+		text-align: left;
+		padding: 0 3%;
+	}
+	.main .main-boxes li{
+		width: 31%;
+    height: 160px;
+    min-width: 180px;
+    margin: 1%;
+	}
+	.main .main-footer{
+		height: 80px;
+		margin: 10px 20px 20px 20px;
+	}
+
+}
+
+
+/* desktop */
+@media only screen and (min-width: 1024px){
+	
+	#wrapper {
+		max-width: 900px;
+	}
+	.aside{
+		display: inline-block;
+		vertical-align: top;
+		height: 240px;
+		width: 190px;
+	}
+	.main{
+		display: inline-block;
+		vertical-align: top;
+		min-height: 300px;
+		margin-left: 10px;
+		width: 700px;
+	}
+	.main .main-boxes{
+		padding: 2px;
+		text-align: center
+	}
+	.main .main-boxes li{
+		width: 200px;
+		height: 200px;
+		margin: 10px;
+	}
+
+	.main .main-footer{
+		height: 80px;
+		margin: 10px 20px 20px 20px;
+	}
+
+}
+
+
+
+
+
+
+

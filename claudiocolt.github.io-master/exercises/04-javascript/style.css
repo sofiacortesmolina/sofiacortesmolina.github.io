@@ -1,0 +1,102 @@
+/*CSS reset settings here*/
+*{
+  margin: 0px;
+  padding: 0px;
+ }
+ html, body{
+  background-color: #1b345d;
+ }
+ #wrapper{
+  width: 970px;
+  /* background-color: silver; */
+  margin: 0px auto;
+ }
+ #header{
+  /* min-height: 150px; */
+  background-color: #cf3036;
+  vertical-align: middle;
+  border-radius: 10px;
+  color: white;
+ }
+ #header h2{
+  padding: 16px 20px;
+ }
+
+ #navigation{
+  min-height: 100px;
+  width: 160px;
+  background-color: #2a7d8c;
+  display: inline-block;
+  border-radius: 10px;
+  margin-top: 20px;
+  padding: 20px;
+  font-size: 13px;
+  
+ }
+ #navigation a{
+  color: #65d6c8;
+ }
+ #navigation ul{
+   margin-left: 20px;
+   color: #65d6c8;
+ }
+
+
+ #main_content{
+  min-height: 400px;
+  width: 704px;
+  background-color: #0e1822;
+  display: inline-block;
+  vertical-align: top;
+  margin-top: 20px;
+  border-radius: 10px;
+  margin-left: 20px;
+  color: #c2d6ec;
+  padding: 20px;
+ }
+ #main_content h2{
+   margin-bottom: 10px;
+ }
+ #main_content p{
+  font-size: 13px;
+ }
+ #main_content ul{
+  margin-left: 20px;
+  margin-top: 10px;
+  font-size: 13px;
+ }
+ #main_content ul li a{
+   color: #65d6c8;
+ }
+ #main_content ul li span{
+  color: #545cef;
+}
+ 
+
+ .subcontents{
+  min-height: 200px;
+  width: 210px;
+  margin: 0;
+  background-color: yellow;
+  display: inline-block;
+  margin: 15px 0 15px 15px;
+
+ }
+ #advertisement{
+  min-height: 120px;
+  width: 660px;
+  background-color: purple;
+  margin-left: 15px;
+ }
+ 
+ #footer{
+  background-color: grey;
+  border-radius: 10px;
+  font-size: 14px;
+  margin-top: 20px;
+  color: #b9cfe7;
+  padding: 10px 20px;
+ }
+ #footer a{
+  color: #65d6c8;
+ }

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Directivas</title>
+</head>
+<body>
+  
+  <div id="app">
+    <h1>Sophies's List of Things to Learn</h1>
+
+    <button v-on:click="headers = !headers">Headers: {{ headers }}</button>
+    
+    <h3 v-if="headers">Tech</h3>
+    <ul>
+      <li v-for="titem in tlist">{{ titem }}</li>
+    </ul>
+
+    <h3 v-if="headers">Financial</h3>
+    <ul>
+      <li v-for="(item, index) in flist" v-if="index % 2">{{ index }}. {{ item }}</li>
+    </ul>
+
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script src="./js/index.js"></script>
+</body>
+</html>

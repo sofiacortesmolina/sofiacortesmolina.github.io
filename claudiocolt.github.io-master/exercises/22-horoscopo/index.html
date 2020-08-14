@@ -1,0 +1,406 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <title>Equipo Rocket</title>
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">    
+  <style>
+      *{
+          margin: 0px;
+          padding: 0px;
+        }
+        footer {
+            width: 100%;
+            height: 70px;
+        }
+
+
+        .modal-body{
+   			background-image: url(./img/fondo2.jpg);
+   			background-size: contain;
+   			background-repeat: no-repeat;
+		}
+        img{
+            display: block;
+            margin: auto auto;
+        }
+
+		
+  </style>
+
+  </head>
+  <body>
+    <!--
+    <nav class="navbar navbar-light bg-info justify-content-center">
+      <span class="navbar-brand mb-0 h1 text-white">Horóscopo</span>
+    </nav>
+
+    <button id="btn-acuario">Acuario</button>
+    <button id="btn-aries">Aries</button>
+
+    <div id="app">consultando la API...</div>
+
+    <div id="resultado"></div>
+    -->
+
+    <!-- Nav principal con logo -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand border p-1" href="#">Horóscopo Roket!</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+    </nav>
+
+    <!-- Menú de signos -->
+    <nav class="navbar-warning bg-primary text-center py-2">
+        <a class="mx-2 text-white" href="#">Capricornio</a>
+        <a class="mx-2 text-white" href="#">Acuario</a>
+        <a class="mx-2 text-white" href="#">Piscis</a>
+        <a class="mx-2 text-white" href="#">Aries</a>
+        <a class="mx-2 text-white" href="#">Tauro</a>
+        <a class="mx-2 text-white" href="#">Géminis</a>
+        <a class="mx-2 text-white" href="#">Cáncer</a>
+        <a class="mx-2 text-white" href="#">Leo</a>
+        <a class="mx-2 text-white" href="#">Virgo</a>
+        <a class="mx-2 text-white" href="#">Libra</a>
+        <a class="mx-2 text-white" href="#">Escorpión</a>
+        <a class="mx-2 text-white" href="#">Sagitario</a>
+    </nav>
+
+    <!-- Slide de imagenes -->
+    <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img class="d-block w-100" src="img/equiporocket.png" alt="Imagen 1">
+            </div>
+        </div>
+    </div>
+
+    <!-- Grilla de cards con signos -->
+    <div class="container my-3 text-center">
+        <h2>Horóscopo de Hoy</h2>
+        <hr>
+        <div class="row">
+        <!-- Fila 1 -->
+        <div class="col-sm-3 my-3">
+            <!-- Card 1 -->
+            <div class="card" >
+                <img class="card-img-top" src="img/capricornio.png" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">Capricornio</h5>
+                    <a href="#" class="btn btn-primary boton-signo" id="capricornio" data-toggle='modal' data-target='#modal'>Ver más</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-3 my-3">
+            <!-- Card 2 -->
+            <div class="card" >
+                <img class="card-img-top" src="img/acuario.png" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">Acuario</h5>
+                    <a href="#" class="btn btn-primary boton-signo" id="acuario" data-toggle='modal' data-target='#modal'>Ver más</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-3 my-3">
+            <!-- Card 3 -->
+            <div class="card" >
+                <img class="card-img-top" src="img/piscis.png" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">Piscis</h5>
+                    <a href="#" class="btn btn-primary boton-signo" id="piscis" data-toggle='modal' data-target='#modal'>Ver más</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-3 my-3">
+            <!-- Card 4 -->
+            <div class="card" >
+                <img class="card-img-top" src="img/aries.png" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">Aries</h5>
+                    <a href="#" class="btn btn-primary boton-signo" id="aries" data-toggle='modal' data-target='#modal'>Ver más</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Fila 2 -->
+        <div class="col-sm-3 my-3">
+            <!-- Card 1 -->
+            <div class="card" >
+                <img class="card-img-top" src="img/tauro.png" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">Tauro</h5>
+                    <a href="#" class="btn btn-primary boton-signo" id="tauro" data-toggle='modal' data-target='#modal'>Ver más</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-3 my-3">
+            <!-- Card 2 -->
+            <div class="card" >
+                <img class="card-img-top" src="img/geminis.png" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">Géminis</h5>
+                    <a href="#" class="btn btn-primary boton-signo" id="geminis" data-toggle='modal' data-target='#modal'>Ver más</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-3 my-3">
+            <!-- Card 3 -->
+            <div class="card" >
+                <img class="card-img-top" src="img/cancer.png" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">Cáncer</h5>
+                    <a href="#" class="btn btn-primary boton-signo" id="cancer" data-toggle='modal' data-target='#modal'>Ver más</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-3 my-3">
+            <!-- Card 4 -->
+            <div class="card" >
+                <img class="card-img-top" src="img/leo.png" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">Leo</h5>
+                    <a href="#" class="btn btn-primary boton-signo" id="leo" data-toggle='modal' data-target='#modal'>Ver más</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Fila 3 -->
+        <div class="col-sm-3 my-3">
+            <!-- Card 1 -->
+            <div class="card" >
+                <img class="card-img-top" src="img/virgo.png" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">Virgo</h5>
+                    <a href="#" class="btn btn-primary boton-signo" id="virgo" data-toggle='modal' data-target='#modal'>Ver más</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-3 my-3">
+            <!-- Card 2 -->
+            <div class="card" >
+                <img class="card-img-top" src="img/libra.png" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">Libra</h5>
+                    <a href="#" class="btn btn-primary boton-signo" id="libra" data-toggle='modal' data-target='#modal'>Ver más</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-3 my-3">
+            <!-- Card 3 -->
+            <div class="card" >
+                <img class="card-img-top" src="img/escorpion.png" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">Escorpión</h5>
+                    <a href="#" class="btn btn-primary boton-signo" id="escorpion" data-toggle='modal' data-target='#modal'>Ver más</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-3 my-3">
+            <!-- Card 4 -->
+            <div class="card" >
+                <img class="card-img-top" src="img/sagitario.png" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">Sagitario</h5>
+                    <a href="#" class="btn btn-primary boton-signo" id="sagitario" data-toggle='modal' data-target='#modal'>Ver más</a>
+                </div>
+            </div>
+        </div>
+       
+      </div>
+    </div>
+
+
+
+
+    <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="modal" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="nombre-signo">Titulo</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+
+                <!-- <div class="text-center">
+                    <img id="imagen-signo">
+                </div> -->                
+
+                <table class="table table-sm table-bordered table-collapsed">
+                <tbody>
+                    <tr>
+                        <th width="80" scope="row">
+                            <img src="iconos/amor.png" width="50" height="50" alt="">
+                        </th>
+                        <td><span id="span-amor"></span></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">
+                            <img src="iconos/salud.png" width="50" height="50" alt="">
+                        </th>
+                        <td><span id="span-salud"></span></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">
+                            <img src="iconos/dinero.png" width="50" height="50" alt="">
+                        </th>
+                        <td><span id="span-dinero"></span></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">
+                            <img src="iconos/color.png" width="50" height="50" alt="">
+                        </th>
+                        <td><span id="span-color"></span></td>
+                    </tr>
+                </tbody>
+                </table>
+                <div class="text-center">
+                	<p>Reproducir para la buena Vibra</p>
+                	<audio controls autoplay>
+  						<source src="tiaYoli2.mp3" type="audio/mpeg">
+					</audio>
+				</div>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+            </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+    <footer class="bg-dark text-center">
+        <p class="text-white py-3"> &copy; Grupo Rocket</p>
+    </footer>
+
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <script>
+
+    $(document).ready(function(){
+    
+        // Conteniene toda la info.
+        var grande;
+
+        $.get(`https://api.adderou.cl/tyaas/`, function(res) {
+            grande = res;
+        }, "json");
+
+
+        $(".boton-signo").click(function(event){
+            
+            var text;
+            var rep;
+            var nom;
+            var datos_signo;
+            var nombre_signo  = this.id;
+            var nombre = prompt("DIME TU NOMBRE MIJITO/A");
+
+            if(nombre){
+
+              var audio = new Audio('magia.mp3');
+              audio.play();
+
+
+              switch (nombre_signo) {
+                case 'aries':       datos_signo = grande.horoscopo.aries;       break;
+                case 'tauro':       datos_signo = grande.horoscopo.tauro;       break;
+                case 'geminis':     datos_signo = grande.horoscopo.geminis;     break;
+                case 'cancer':      datos_signo = grande.horoscopo.cancer;      break;
+                case 'leo':         datos_signo = grande.horoscopo.leo;         break;
+                case 'virgo':       datos_signo = grande.horoscopo.virgo;       break;
+                case 'libra':       datos_signo = grande.horoscopo.libra;       break;
+                case 'escorpion':   datos_signo = grande.horoscopo.escorpion;   break;
+                case 'sagitario':   datos_signo = grande.horoscopo.sagitario;   break;
+                case 'capricornio': datos_signo = grande.horoscopo.capricornio; break;
+                case 'acuario':     datos_signo = grande.horoscopo.acuario;     break;
+                case 'piscis':      datos_signo = grande.horoscopo.piscis;      break;
+              }
+
+          
+              //Quitando tildes y mayusculas para comparar
+              var mod =   $.trim(nombre.toLowerCase()).replace("é", "e");
+
+              if(mod == 'rene'){
+
+                alert("Felicidades "+nombre+", eres visitante 1.000.000!!");
+
+                $("#nombre-signo").html(nombre.toUpperCase());
+                $("#span-amor").html(nombre+", "+datos_signo.amor);
+                $("#span-dinero").html("<b>Por este mes tu asignación económica será distribuida entre los integrantes del equipo Rocket</b>");
+                $("#span-salud").html("Mijito use mascarilla, no vaya a andar tosiendo por ahí, no se ande tocando la cara no ve que anda el coronavirus?");
+                $("#span-color").html(nombre+" tu color para hoy es el Blanco & Negro bien colocolino como tú, aguante garra blanca!!");
+
+              } else {
+
+                $("#nombre-signo").html(nombre_signo.toUpperCase());
+                $("#span-amor").html(nombre+" "+datos_signo.amor);
+                $("#span-dinero").html(datos_signo.dinero);
+                $("#span-salud").html(datos_signo.salud);
+                $("#span-color").html(nombre+", tu color para hoy es "+datos_signo.color);
+
+              }
+
+
+            } else {
+
+              setTimeout(function(){
+                $('#modal').trigger('close');
+              }, 600);
+
+            }
+
+          
+      
+
+
+                
+            
+
+            // Asignar las variables de datos_signo, a cada span que está en el modal
+            // if(nombre1=="Rene"){
+
+            //     $("#nombre-signo").html("RENE");
+            //     $("#span-amor").html(datos_signo.amor);
+            //     $("#span-amor").prepend(nombre+" ");
+            //     $("#span-dinero").html("Por este mes tu asignación económica será distribuido en los integrantes del equipo Rocket");
+            //     $("#span-salud").html("tienes un gran talento artistico y problemas con la realidad, vives en las nubes");
+            //     $("#span-color").html("es el AZul!! Estas de suerte!");
+            //     $("#span-color").prepend(nombre+" tu color para hoy es ");
+
+                
+            // }  
+            // else{
+            //     $("#nombre-signo").html(nombre_signo.toUpperCase());
+            //     $("#span-amor").html(datos_signo.amor);
+            //     $("#span-amor").prepend(nombre+" ");
+
+            //     $("#span-dinero").html(datos_signo.dinero);
+            //     $("#span-salud").html(datos_signo.salud);
+            //     $("#span-color").html(datos_signo.color);
+            //     $("#span-color").prepend(nombre+" tu color para hoy es ");
+
+            //   }
+            
+        });
+    
+    });
+  </script>
+
+
+
+</body>
+</html>

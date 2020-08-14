@@ -1,0 +1,112 @@
+/*CSS reset settings here*/
+*{
+	margin: 0px;
+	padding: 0px;
+}
+
+#wrapper{
+	width: 90%;
+  margin: 0px auto;
+	font-family: sans-serif;
+	font-size: 0;
+}
+
+.top{
+	height: 90px;
+	background-color: #009900;
+	margin-bottom: 10px;
+}
+
+.aside{
+	background-color: #0600ff;
+}
+.main{
+	background-color: #ff0400;
+}
+.main .main-footer{
+	background-color: #7f01ff;
+}
+
+.bottom{
+  background-color: #ffff9a;
+}
+
+
+
+
+
+
+
+/* phone */
+@media only screen and (max-width: 480px){
+	
+	#wrapper {
+		width: 90%;
+		background-color: blue;
+	}
+	.aside{
+		display: none;
+	}
+	.main{
+		margin: 0;
+		width: auto;
+		display: block;
+		min-height: 300px;
+	}
+	
+
+}
+
+
+/* tablet */
+@media only screen and (min-width: 481px){
+	
+	#wrapper {
+		width: 90%;
+		background-color: hotpink;
+	}
+	.aside{
+		display: none;
+	}
+	.main{
+		margin: 0;
+		width: auto;
+		display: block;
+		min-height: 300px;
+	}
+
+}
+
+
+/* desktop */
+@media only screen and (min-width: 1024px){
+	
+	#wrapper {
+		max-width: 900px;
+		background-color: black;
+	}
+	.aside{
+		display: inline-block;
+		vertical-align: top;
+		height: 240px;
+		width: 190px;
+	}
+	.main{
+		display: inline-block;
+		vertical-align: top;
+		min-height: 300px;
+		margin-left: 10px;
+		width: 700px;
+	}
+	.main .main-footer{
+		height: 80px;
+	}
+
+}
+
+
+
+
+
+
+

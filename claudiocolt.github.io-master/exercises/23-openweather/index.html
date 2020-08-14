@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  <form action="">
+    <input type="text" id="ipt-ciudad">
+    <button type="submit">Consultar</button>
+  </form>
+
+  <table border="1" style="width: 300px; margin-top: 30px; text-align: left;">
+    <tbody>
+      <tr>
+        <th style="width: 120px;">Ciudad</th>
+        <td><span id="span-ciudad"></span></td>
+      </tr>
+      <tr>
+        <th>Temperatura</th>
+        <td><span id="span-temp"></span>C°</td>
+      </tr>
+      <tr>
+        <th>Clima</th>
+        <td><span id="span-clima"></span></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <table border="1" style="width: 300px; margin-top: 20px; text-align: left;">
+    <tbody>
+      <tr>
+        <td colspan="2" style="text-align: center;">Coordenadas</td>
+      </tr>
+      <tr>
+        <th style="width: 120px;">Latitud</th>
+        <td><span id="span-lat"></span></td>
+      </tr>
+      <tr>
+        <th>Longitud</th>
+        <td><span id="span-lon"></span></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+<script>
+$(document).ready(function() {
+
+  $('form').submit(function() {
+
+    var ciudad  = $("#ipt-ciudad").val();
+    var url     = "http://api.openweathermap.org/data/2.5/weather?q="+ciudad+"&lang=es&units=metric&appid=68a34d03654e9ef3d9036c4fb75733a8";
+
+    $.get(url, function(res) {
+
+        var city        = res.name;
+        var temperature = res.main.temp;
+        var latitude    = res.coord.lat;
+        var longitude   = res.coord.lon;
+        var tiempo      = res.weather;
+        var clima       = "";
+        
+        $("#span-ciudad").text(city);
+        $("#span-temp").text(temperature);
+        $("#span-lat").text(latitude);
+        $("#span-lon").text(longitude);
+
+        // variable weather puede traer mas de 1 item
+        $.each(tiempo, function(idx, element){
+          clima +=  element.description+", ";
+        });
+
+        // quitando coma de ultimo item
+        clima = clima.slice(0, -2);
+
+        $("#span-clima").text(clima);
+
+    }, 'json');
+    
+    return false;
+  });
+
+});
+</script>
+</body>
+</html>

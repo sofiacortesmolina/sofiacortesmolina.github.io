@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Game of Thrones API</title>
+  
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">    
+  <style>
+    .container{
+      text-align: center;
+      max-width: 840px;
+      padding: 0;
+    }
+
+    ul{
+      margin: 0 auto;
+      margin-top: 10px;
+      padding: 2px;
+      font-size: 0px;
+      list-style: none;      
+      text-align: center;
+    }
+    ul li{
+      display: inline-block;
+      margin: 2px;
+      width: 100px;
+      height: 150px;
+    }    
+    ul li span{
+      display: block;
+      font-weight: 700;
+      text-align: center;
+      font-size: 14px;
+      background-color: #343a40;
+      border: 1px solid black;
+      color: white;
+      margin-bottom: 2px;
+      border-radius: 2px;
+    }
+    ul li div img{
+      cursor: pointer;
+      filter: grayscale(1);
+    }
+    ul li div img:hover{
+      filter: grayscale(0);
+    }
+    ul li div img.selected{
+      filter: grayscale(0);
+    }
+
+    #loader{
+      text-align: center;
+    }
+    .table{
+      margin-top: 30px;
+      width: 100%;
+      margin: 30px auto;
+    }
+
+  </style>
+
+</head>
+<body>
+
+  <nav class="navbar navbar-light bg-dark justify-content-center">
+    <span class="navbar-brand mb-0 h1 text-white">Game of Thrones</span>
+  </nav>
+
+  <div class="container">
+    
+    <ul id="listado">
+
+      <li>
+        <span>Stark</span>
+        <div><img id="362" src="./houses/stark.png" alt="" width="100%"></div>
+      </li>
+      <li>
+        <span>Baratheon</span>
+        <div><img id="17" src="./houses/baratheon.png" alt="" width="100%"></div>
+      </li>
+      <li>
+        <span>Lannister</span>
+        <div><img id="229" src="./houses/lannister.png" alt="" width="100%"></div>
+      </li>
+      <li>
+        <span>Targaryen</span>
+        <div><img id="378" src="./houses/targaryen.png" alt="" width="100%"></div>
+      </li>
+      <li>>
+        <span>Greyjoy</span>
+        <div><img id="169" src="./houses/greyjoy.png" alt="" width="100%"></div>
+      </li>
+      <li>
+        <span>Tyrell</span>
+        <div><img id="398" src="./houses/tyrell.png" alt="" width="100%"></div>
+      </li>
+      <li>
+        <span>Arryn</span>
+        <div><img id="7" src="./houses/arryn.png" alt="" width="100%"></div>
+      </li>
+      <li>
+        <span>Tully</span>
+        <div><img id="395" src="./houses/tully.png" alt="" width="100%"></div>
+      </li>
+
+    </ul>
+
+    <div id="loader">Cargando...</div>
+
+
+    <table class="table table-sm table-bordered">
+      <thead>
+        <tr class="bg-dark text-white">
+          <th scope="col" colspan="2"><span id="span-name"></span></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">Word</th>
+          <td><span id="span-words"></span></td>
+        </tr>
+        <tr>
+          <th scope="row">Titles</th>
+          <td><span id="span-titles"></span></td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+
+  <!-- 
+    Stark     -> https://www.anapioficeandfire.com/api/houses/362
+    Baratheon -> https://www.anapioficeandfire.com/api/houses/17
+    Lannister -> https://www.anapioficeandfire.com/api/houses/229
+    Targaryen -> https://www.anapioficeandfire.com/api/houses/378
+    Greyjoy   -> https://www.anapioficeandfire.com/api/houses/169    
+    Tyrell    -> https://www.anapioficeandfire.com/api/houses/398
+    Arryn     -> https://www.anapioficeandfire.com/api/houses/7
+    Tully     -> https://www.anapioficeandfire.com/api/houses/395
+   -->
+
+
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+  <script>
+
+    var loader  = document.getElementById("loader");
+
+    $(document).ready(function(){
+
+      loader.innerHTML = "";
+
+      $("#listado img").click(function(){
+
+        var house = this.id;
+        
+        
+
+        $("#listado img").removeClass("selected");
+        $(this).addClass("selected");
+
+
+        $.ajax({
+          url: `https://www.anapioficeandfire.com/api/houses/${house}/`,
+          beforeSend: function(){
+            loader.innerHTML = "Cargando...";
+          },
+          success: function (data) {
+
+            console.log(data);
+
+            loader.innerHTML = "";            
+
+            $("#span-name").html(data.name);
+            $("#span-words").html(data.words);
+            $("#span-titles").html(data.titles);
+
+          }
+        });
+
+
+      });
+
+
+    });
+  </script>
+  
+</body>
+</html>

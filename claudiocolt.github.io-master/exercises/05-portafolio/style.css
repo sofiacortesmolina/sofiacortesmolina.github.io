@@ -1,0 +1,186 @@
+/*CSS reset settings here*/
+*{
+	margin: 0px;
+	padding: 0px;
+	/* outline: 1px dashed red; */
+}
+html, body{
+	background-color: grey;
+	font-family: Helvetica, sans-serif;
+}
+#wrapper{
+	width: 900px;
+	margin: 0px auto;
+}
+#header{
+	background-color: #f2f2f2;
+	vertical-align: middle;
+	color: #000000;
+	padding: 10px 30px;
+}
+#wrapper h1{
+	width: 40%;
+	display: inline-block;
+	vertical-align: middle;
+	text-align: left;
+	font-family: "Comic Sans MS", cursive, sans-serif;
+}
+#wrapper h3{
+	width: 59%;
+	display: inline-block;
+	vertical-align: middle;
+	text-align: right;
+}
+
+
+
+#main{
+	width: auto;
+	padding: 20px 30px;
+	min-height: 400px;
+	background-color: #322026;
+	color: #c2d6ec;
+}
+
+
+#main .photo{
+	width: 350px;
+	border: 4px solid #c0c0c0;
+	display: inline-block;
+	vertical-align: top;
+}
+#main .photo img{
+	width: 100%;
+}
+
+
+#main .bio{
+	width: 450px;
+	height: 242px;
+	border: none;
+	background-color: #ebe4eb;
+	color: black;
+	display: inline-block;
+	vertical-align: top;
+	margin-left: 24px;
+}
+#main .bio-header{
+	padding: 8px 18px;
+	background-color: #a5a4ab;
+	color: white;
+	font-weight: bold;
+	font-size: 18px;
+}
+#main .bio-body{
+	padding: 10px;
+}
+#main .bio-body p{
+	padding: 8px 10px;
+	font-size: 14px;
+}
+#main .bio-body a{
+	margin-left: 10px;
+	font-size: 14px;
+	color: grey;
+}
+
+
+
+
+
+
+#main ul{
+	margin-top: 20px;
+	list-style: none;
+	font-size: 0;
+}
+#main ul li.box{
+	width: 260px;
+	display: inline-block;
+	vertical-align: top;
+	font-size: 14px;
+	background-color: white;
+	text-align: center;
+}
+#main ul li.mid{
+	margin: 0 28px;
+}
+
+#main ul li.box h5{
+	padding: 8px 18px;
+	background-color: #a5a4ab;
+	color: white;
+	font-weight: bold;
+	font-size: 16px;
+}
+#main ul li.box img{
+	width: 100%;
+}
+#main ul li.box p{
+	padding: 14px;
+	font-size: 14px;
+	color: #464646;
+	height: 180px;
+	text-align: left;
+}
+#main ul li.box ul.icons{
+	margin: 0;
+	/* background-color: coral; */
+	padding: 10px;
+	list-style: none;
+	font-size: 0;
+	text-align: left;
+}
+#main ul li.box ul.icons li{
+	width: 38px;
+	height: 38px;
+	/* background-color: crimson; */
+	display: inline-block;
+	margin: 5px;
+}
+#main ul li.box a.visit{
+	margin: 0 auto;
+	font-size: 12px;
+	height: 22px;
+	line-height: 22px;
+	text-decoration: none;
+	font-weight: bold;
+	color: white;
+	width: 120px;
+	border-radius: 4px;
+	background-color: #407d61;
+	border: 1px solid #245a41;
+	margin-top: 8px;
+	margin-bottom: 16px;
+	display: block;
+}
+
+#footer{
+	background-color: #f2f2f2;
+	padding: 14px 30px;
+	margin-bottom: 100px;
+	text-align: center;
+	font-size: 14px;
+  color: #424242;
+}
+#footer ul{
+	margin-top: 10px;
+	list-style: none;
+	font-size: 0;
+}
+#footer ul li{
+	font-size: 12px;
+	display: inline-block;
+	margin: 0 10px;
+}
+
+#footer ul li img{
+	width: 16px;
+	display: inline-block;
+	vertical-align: middle;
+}
+#footer ul li a{
+	color: inherit;
+	display: inline-block;
+	vertical-align: middle;
+}

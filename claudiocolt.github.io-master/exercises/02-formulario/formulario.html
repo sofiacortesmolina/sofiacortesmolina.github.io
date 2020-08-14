@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Formulario de Registro</title>
+</head>
+<body>
+
+  <form action="#" method="GET">
+    <table>
+      <thead>
+        <tr>
+          <th colspan="2">Mi Formulario de Registro<br></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <label for="nombre">Nombre:</label>
+          </td>
+          <td>
+            <input type="text" id="nombre">
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for="apellido">Apellido:</label>
+          </td>
+          <td>
+            <input type="text" id="apellido">
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for="email">Email:</label>
+          </td>
+          <td>
+            <input type="email" id="email">
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for="password">Constraseña:</label>
+          </td>
+          <td>
+            <input type="password" id="password">
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for="confirmar">Confirmar:</label>
+          </td>
+          <td><input type="password" id="confirmar"></td>
+        </tr>
+        <tr>
+          <td>
+            <label for="cumpleaños">Cumpleaños:</label>
+          </td>
+          <td><input type="date" id="cumpleaños"></td>
+        </tr>
+        <tr>
+          <td colspan="2">            
+            
+            <input type="radio" name="genero" id="hombre" value="hombre">
+            <label for="hombre"> Hombre</label>
+            
+            <input type="radio" name="genero" id="mujer" value="mujer">
+            <label for="mujer"> Mujer</label>
+
+            <input type="radio" name="genero" id="otro" value="otro">
+            <label for="otro"> Otro</label>           
+
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <label for="descripcion">Una breve descripción de ti:</label>
+            <textarea name="descripcion" id="descripcion"></textarea>            
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for="lenguaje">Lenguaje Favorito:</label>
+          </td>
+          <td>
+            <select name="lenguaje" id="lenguaje">
+              <option value="Javascript">Javascript</option>
+              <option value="Javascript">PHP</option>
+              <option value="Javascript">Ruby</option>
+              <option value="Javascript">Python</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <br>
+            <input type="submit" value="Enviar">            
+          </td>
+        </tr>
+
+      </tbody>
+    </table>
+  </form>
+
+</body>
+</html>

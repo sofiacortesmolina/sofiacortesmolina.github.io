@@ -1,0 +1,30 @@
+/*CSS reset settings here*/
+*{
+  margin: 0px;
+  padding: 0px;
+ }
+ #wrapper{
+  width: 950px;
+  background-color: silver;
+  margin: 0px auto;
+  padding: 10px;
+ }
+
+ #top{
+   padding: 20px;
+   margin: 10px;
+   background-color: #b3b3b3;
+   border: 1px dotted red;
+ }
+ #mid{
+  padding: 20px;
+  margin: 10px;
+  background-color: #cccccc;
+  border: 1px dotted red;
+}
+#bot{
+  padding: 20px;
+  margin: 10px;
+  background-color: #ffff9a;
+  border: 1px dotted red;
+}

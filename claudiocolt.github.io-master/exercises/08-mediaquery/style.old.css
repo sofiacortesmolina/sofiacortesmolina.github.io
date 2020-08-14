@@ -1,0 +1,69 @@
+/*CSS reset settings here*/
+*{
+  margin: 0px;
+  padding: 0px;
+ }
+ #wrapper{
+  width: 88%;
+  margin: 0px auto;
+  padding: 10px;
+	font-family: sans-serif;
+ }
+ #top{
+   padding: 20px;
+   margin: 10px;
+   background-color: #b3b3b3;
+   border: 1px solid #969696;
+ }
+ #mid{
+  padding: 20px;
+  margin: 10px;
+  background-color: #cccccc;
+  border: 1px solid #b3b3b3;
+}
+#bot{
+  padding: 20px;
+  margin: 10px;
+  background-color: #ffff9a;
+  border: 1px solid #d6cc7e;
+}
+
+
+
+/* phone */
+@media only screen and (max-width: 480px){
+	#wrapper {
+		width: 88%;
+	}
+	#wrapper #bot .p-phone{		display: block;	}
+	#wrapper #bot .p-tablet{	display: none;	}
+	#wrapper #bot .p-desktop{ display: none;	}
+}
+
+/* tablet */
+@media only screen and (min-width: 481px){
+	#wrapper {
+		width: 88%;
+	}
+	#wrapper #bot .p-phone{		display: none;	}
+	#wrapper #bot .p-tablet{	display: block;	}
+	#wrapper #bot .p-desktop{ display: none;	}
+}
+
+/* desktop */
+@media only screen and (min-width: 1024px){
+	#wrapper {
+		width: 900px;
+	}
+	
+	#wrapper #bot .p-phone{		display: none;	}
+	#wrapper #bot .p-tablet{	display: none;	}
+	#wrapper #bot .p-desktop{ display: block;	}
+}
+
+
+
+
+
+
+
